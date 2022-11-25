@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from 'react';
+import ProductModal from '../ProductModal/ProductModal';
 import CategoryOption from './CategoryOption';
 
 const AvailableProduct = () => {
     const [productOption, setProductOption] = useState([])
+    const [book, setBook] = useState(null);
     // console.log(productOption[0].product)
 
     useEffect(() => {
@@ -18,20 +20,21 @@ const AvailableProduct = () => {
                     productOption.map(option => <CategoryOption
                         key={option._id}
                         productOption={option}
+                        setBook={setBook}
                     ></CategoryOption>)
                 }
 
 
-                {/* 
-            {
-                treatment &&
-                <BookingModal
-                    selectedDate={selectedDate}
-                    setTreatment={setTreatment}
-                    treatment={treatment}
-                    refetch={refetch}
-                ></BookingModal>
-            } */}
+
+                {
+                    book &&
+                    <ProductModal
+                        // selectedDate={selectedDate}
+                        setBook={setBook}
+                        book={book}
+                    // refetch={refetch}
+                    ></ProductModal>
+                }
 
             </div>
 

@@ -6,7 +6,9 @@
         "product": [
             "Adventure1",
             "Adventure2"
-        ]
+        ],
+        "odprice": 40,
+        "rsprice": 20
     },
     {
         "_id": 2,
@@ -15,7 +17,9 @@
         "product": [
             "History1",
             "History2"
-        ]
+        ],
+        "odprice": 50,
+        "rsprice": 20
     },
     {
         "_id": 3,
@@ -24,6 +28,8 @@
         "product": [
             "Romance1",
             "Romance1"
-        ]
+        ],
+        "odprice": 30,
+        "rsprice": 20
     }
 ]

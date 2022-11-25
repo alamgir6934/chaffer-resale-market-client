@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const CategoryOption = ({ productOption }) => {
+const CategoryOption = ({ productOption, setBook }) => {
     const { title, image, product, name } = productOption
     return (
         <div className="card shadow-xl">
@@ -12,11 +12,11 @@ const CategoryOption = ({ productOption }) => {
                 <p>{product.length}{product.length > 1 ? 'book' : 'book'}available</p>
                 {/* <p><small>price: ${price}</small></p> */}
                 <div className="card-actions justify-center">
-                    {/* <label
-                    disabled={product.length === 0}
-                    onClick={() => setTreatment(appointmentOption)}
-                    htmlFor="Booking-modal" className="btn">Book Appointment</label> */}
-                    <button className='btn btn-primary text-white'>Booknow</button>
+                    <label
+                        disabled={product.length === 0}
+                        onClick={() => setBook(productOption)}
+                        htmlFor="Booking-modal" className="btn">Buy book</label>
+
                 </div>
             </div>
         </div>
