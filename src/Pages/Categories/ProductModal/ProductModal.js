@@ -1,7 +1,36 @@
 import React from 'react';
 
-const ProductModal = ({ book }) => {
-    const { title, odprice, rsprice, product } = book;
+const ProductModal = ({ book, setBook }) => {
+    const { title, odprice, rsprice, product, seller, location } = book;
+
+    const handleProduct = event => {
+        event.preventDefault();
+        const form = event.target;
+        const pro = form.pro.value;
+        const name = form.name.value;
+        const email = form.email.value;
+        const phone = form.phone.value;
+
+        const booking = {
+            title,
+            pro,
+            buyerName: name,
+            email,
+            phone,
+            odprice,
+            rsprice,
+            location,
+            seller
+
+        }
+
+        console.log(booking)
+        setBook(null);
+
+
+    }
+
+
     return (
         <>
             <input type="checkbox" id="Booking-modal" className="modal-toggle" />
@@ -12,7 +41,7 @@ const ProductModal = ({ book }) => {
                     <p><small>Old Price:${odprice}</small></p>
                     <br />
                     <p><small>new Price:${rsprice}</small></p>
-                    <form className=' grid grid-cols-1 gap-3 mt-10'>
+                    <form onSubmit={handleProduct} className=' grid grid-cols-1 gap-3 mt-10'>
 
                         <select name='pro' className="select select-bordered w-full">
 
@@ -23,11 +52,11 @@ const ProductModal = ({ book }) => {
                                 >{pro}</option>)
                             }
                         </select>
-                        <input name='name' type="text" disabled placeholder="your name" className="input w-full input-bordered" />
-                        <input name='email' type="email" disabled placeholder="Email Address" className="input w-full input-bordered" />
+                        <input name='name' type="text" placeholder="your name" className="input w-full input-bordered" />
+                        <input name='email' type="email" placeholder="Email Address" className="input w-full input-bordered" />
                         <input name='phone' type="text" placeholder="phone number" className="input w-full input-bordered" />
                         <br />
-                        <input className=' btn btn-accent w-full mx-w-xs' type="submit" value='Submit' />
+                        <input className=' btn btn-accent w-full mx-w-xs' type="submit" value='order' />
                     </form>
                 </div>
             </div>

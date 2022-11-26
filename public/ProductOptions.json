@@ -8,7 +8,9 @@
             "Adventure2"
         ],
         "odprice": 40,
-        "rsprice": 20
+        "rsprice": 20,
+        "seller": "alam",
+        "location": "Dhaka"
     },
     {
         "_id": 2,
@@ -19,7 +21,9 @@
             "History2"
         ],
         "odprice": 50,
-        "rsprice": 20
+        "rsprice": 20,
+        "seller": "alam",
+        "location": "Dhaka"
     },
     {
         "_id": 3,
@@ -30,6 +34,8 @@
             "Romance1"
         ],
         "odprice": 30,
-        "rsprice": 20
+        "rsprice": 20,
+        "seller": "alam",
+        "location": "Dhaka"
     }
 ]

@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const CategoryOption = ({ productOption, setBook }) => {
-    const { title, image, product, name } = productOption
+    const { title, image, product, name, _id } = productOption
     return (
         <div className="card shadow-xl">
             <div className="card-body text-center">
@@ -16,6 +16,10 @@ const CategoryOption = ({ productOption, setBook }) => {
                         disabled={product.length === 0}
                         onClick={() => setBook(productOption)}
                         htmlFor="Booking-modal" className="btn">Buy book</label>
+
+                    {/* <Link to={`/categories/${_id}`}>
+                        <button className="btn btn-primary">details</button>
+                    </Link> */}
 
                 </div>
             </div>

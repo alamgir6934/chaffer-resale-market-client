@@ -27,12 +27,12 @@ const Navbar = () => {
         </li>
         <li><Link to='/about'>About</Link></li>
         {/* {user?.uid ?
-        <>
-            <li><Link to='/dashboard'>Dashboard</Link></li>
-            <li><button onClick={handleLogOut}>Sign Out</button></li>
-        </>
+        <> */}
+        <li><Link to='/dashboard'>Dashboard</Link></li>
+        {/* <li><button onClick={handleLogOut}>Sign Out</button></li> */}
+        {/* </> */}
         : <li><Link to='/login'>Login</Link></li>
-    } */}
+        {/* } */}
     </React.Fragment>
     return (
         <div className="navbar flex justify-between">
