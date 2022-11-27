@@ -1,0 +1,56 @@
+[
+    {
+        "category_id": 1,
+        "title": "Adventure1",
+        "image": "https://i.ibb.co/QJb15zY/cartoon-illustration-knowledge-concept-cartoon-illustration-pencil-rocket-launch-book-1150-50871.webp",
+        "odprice": 40,
+        "rsprice": 20,
+        "seller": "alam",
+        "location": "Dhaka"
+    },
+    {
+        "category_id": 1,
+        "title": "Adventure2",
+        "image": "https://i.ibb.co/QJb15zY/cartoon-illustration-knowledge-concept-cartoon-illustration-pencil-rocket-launch-book-1150-50871.webp",
+        "odprice": 40,
+        "rsprice": 20,
+        "seller": "alam",
+        "location": "Dhaka"
+    },
+    {
+        "category_id": 2,
+        "title": "History1",
+        "image": "https://i.ibb.co/yqjpsyG/composed-book-school-supplies-23-2147654593.webp",
+        "odprice": 50,
+        "rsprice": 20,
+        "seller": "alam",
+        "location": "Dhaka"
+    },
+    {
+        "category_id": 2,
+        "title": "History2",
+        "image": "https://i.ibb.co/yqjpsyG/composed-book-school-supplies-23-2147654593.webp",
+        "odprice": 50,
+        "rsprice": 20,
+        "seller": "alam",
+        "location": "Dhaka"
+    },
+    {
+        "category_id": 3,
+        "title": "Romance1",
+        "image": "https://i.ibb.co/hRVcMMr/teens-girls-reading-educational-book-set-vector-529539-231.webp",
+        "odprice": 30,
+        "rsprice": 20,
+        "seller": "alam",
+        "location": "Dhaka"
+    },
+    {
+        "category_id": 3,
+        "title": "Romance2",
+        "image": "https://i.ibb.co/hRVcMMr/teens-girls-reading-educational-book-set-vector-529539-231.webp",
+        "odprice": 30,
+        "rsprice": 20,
+        "seller": "alam",
+        "location": "Dhaka"
+    }
+]

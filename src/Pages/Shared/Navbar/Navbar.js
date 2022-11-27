@@ -1,16 +1,15 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../../contexts/AuthProvider';
 import ProductOption from '../ProductBanner/ProductOption/ProductOption';
 
 const Navbar = () => {
-    // const [ProductOptions, setProductOption] = useState();
-
-    // useEffect(() => {
-    //     fetch(`ProductOptions.json`)
-    //         .then(res => res.json())
-    //         .then(data => setProductOption(data))
-    // }, [])
-
+    const { user, logOut } = useContext(AuthContext);
+    const handleLogOut = () => {
+        logOut()
+            .then(() => { })
+            .catch(err => console.log(err))
+    }
 
     const menuItems = <React.Fragment>
         <li><Link to='/'>Home</Link></li>
@@ -26,13 +25,13 @@ const Navbar = () => {
             </ul>
         </li>
         <li><Link to='/about'>About</Link></li>
-        {/* {user?.uid ?
-        <> */}
-        <li><Link to='/dashboard'>Dashboard</Link></li>
-        {/* <li><button onClick={handleLogOut}>Sign Out</button></li> */}
-        {/* </> */}
-        : <li><Link to='/login'>Login</Link></li>
-        {/* } */}
+        {user?.uid ?
+            <>
+                <li><Link to='/dashboard'>Dashboard</Link></li>
+                <li><button onClick={handleLogOut}>Sign Out</button></li>
+            </>
+            : <li><Link to='/login'>Login</Link></li>
+        }
     </React.Fragment>
     return (
         <div className="navbar flex justify-between">

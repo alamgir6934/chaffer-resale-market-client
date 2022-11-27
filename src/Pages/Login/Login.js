@@ -1,41 +1,53 @@
+import { GoogleAuthProvider } from 'firebase/auth';
 import React, { useContext, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-// import { AuthContext } from '../../contexts/AuthProvider';
+import { AuthContext } from '../../contexts/AuthProvider';
 // import useToken from '../../Hooks/useToken';
 
 const Login = () => {
     const { register, formState: { errors }, handleSubmit } = useForm();
-    // const { signIn } = useContext(AuthContext);
-    // const [loginError, setLoginError] = useState('');
+    const { signIn, googleSignIn } = useContext(AuthContext);
+    const [loginError, setLoginError] = useState('');
+    const googleProvider = new GoogleAuthProvider();
     // const [loginUserEmail, setLoginUserEmail] = useState('');
     // const [token] = useToken(loginUserEmail);
 
-    // const location = useLocation();
-    // const navigate = useNavigate();
+    const location = useLocation();
+    const navigate = useNavigate();
 
-    // const from = location.state?.from?.pathname || '/';
+    const from = location.state?.from?.pathname || '/';
 
     // if (token) {
-    //     navigate(from, { replace: true })
+    navigate(from, { replace: true })
     // }
 
     const handleLogin = data => {
         console.log(data)
-        // setLoginError('');
-        // signIn(data.email, data.password)
-        //     .then(result => {
-        //         const user = result.user;
-        //         console.log(user)
-        //         setLoginUserEmail(data.email);
+        setLoginError('');
+        signIn(data.email, data.password)
+            .then(result => {
+                const user = result.user;
+                console.log(user)
+                // setLoginUserEmail(data.email);
 
-        //     })
-        //     .catch(error => {
+            })
+            .catch(error => {
 
-        //         console.log(error.message)
-        //         setLoginError(error.message);
+                console.log(error.message)
+                setLoginError(error.message);
 
-        //     });
+            });
+    }
+
+    const handleGoogleSignIn = () => {
+        googleSignIn(googleProvider)
+            .then(result => {
+                const user = result.user;
+                console.log(user)
+
+            })
+            .catch(error => console.error(error))
     }
 
 
@@ -63,13 +75,13 @@ const Login = () => {
                         <label className="label"> <span className="label-text">Forgot password</span></label>
                     </div>
                     <input className='btn btn-accent w-full' value='login' type="submit" />
-                    {/* <div>
+                    <div>
                         {loginError && <p>{loginError}</p>}
-                    </div> */}
+                    </div>
                 </form>
                 <p>New to Booh Shop <Link className='text-secondary' to='/signup'>Create new account</Link></p>
                 <div className="divider">OR</div>
-                <button className='btn btn-outline w-full'>CONTINUE WITH GOOGLE</button>
+                <button onClick={handleGoogleSignIn} className='btn btn-outline w-full'>CONTINUE WITH GOOGLE</button>
 
             </div>
         </div>
