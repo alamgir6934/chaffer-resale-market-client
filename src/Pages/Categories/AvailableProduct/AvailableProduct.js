@@ -1,17 +1,20 @@
-import React, { useEffect, useState } from 'react';
+import { useQuery } from '@tanstack/react-query';
+import React, { useState } from 'react';
 import ProductModal from '../ProductModal/ProductModal';
 import CategoryOption from './CategoryOption';
 
 const AvailableProduct = () => {
-    const [productOption, setProductOption] = useState([])
+    // const [productOption, setProductOption] = useState([])
     const [book, setBook] = useState(null);
     // console.log(productOption[0].product)
 
-    useEffect(() => {
-        fetch('ProductOptions.json')
+    const { data: productOption = [], isLoading } = useQuery({
+        queryKey: ['ProductOptions'],
+        queryFn: () => fetch('http://localhost:5000/ProductOptions')
             .then(res => res.json())
-            .then(data => setProductOption(data))
-    }, [])
+    })
+
+
     return (
         <section className='my-16'>
             {/* <p className='text-center text-secondary font-bold'>Available appointment on {format(selectedDate, 'PP')}</p> */}

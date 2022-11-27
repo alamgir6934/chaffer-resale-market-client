@@ -1,7 +1,9 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { AuthContext } from '../../../contexts/AuthProvider';
 
 const ProductModal = ({ book, setBook }) => {
     const { title, odprice, rsprice, product, seller, location } = book;
+    const { user } = useContext(AuthContext);
 
     const handleProduct = event => {
         event.preventDefault();
@@ -9,18 +11,18 @@ const ProductModal = ({ book, setBook }) => {
         const pro = form.pro.value;
         const name = form.name.value;
         const email = form.email.value;
-        const phone = form.phone.value;
+        const phone = form.phone.value
+        // const phone = form.phone.value;
 
         const booking = {
-            title,
-            pro,
+            category: title,
             buyerName: name,
+            order: pro,
             email,
             phone,
-            odprice,
-            rsprice,
             location,
-            seller
+            odprice,
+            rsprice
 
         }
 
@@ -52,8 +54,8 @@ const ProductModal = ({ book, setBook }) => {
                                 >{pro}</option>)
                             }
                         </select>
-                        <input name='name' type="text" placeholder="your name" className="input w-full input-bordered" />
-                        <input name='email' type="email" placeholder="Email Address" className="input w-full input-bordered" />
+                        <input name='name' type="text" defaultValue={user?.displayName} disabled placeholder="your name" className="input w-full input-bordered" />
+                        <input name='email' type="email" defaultValue={user?.email} disabled placeholder="Email Address" className="input w-full input-bordered" />
                         <input name='phone' type="text" placeholder="phone number" className="input w-full input-bordered" />
                         <br />
                         <input className=' btn btn-accent w-full mx-w-xs' type="submit" value='order' />

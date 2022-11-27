@@ -1,6 +1,6 @@
 [
     {
-        "_id": 1,
+        "category_id": 1,
         "title": "Adventure",
         "image": "https://i.ibb.co/QJb15zY/cartoon-illustration-knowledge-concept-cartoon-illustration-pencil-rocket-launch-book-1150-50871.webp",
         "product": [
@@ -13,7 +13,7 @@
         "location": "Dhaka"
     },
     {
-        "_id": 2,
+        "category_id": 2,
         "title": "History",
         "image": "https://i.ibb.co/yqjpsyG/composed-book-school-supplies-23-2147654593.webp",
         "product": [
@@ -26,7 +26,7 @@
         "location": "Dhaka"
     },
     {
-        "_id": 3,
+        "category_id": 3,
         "title": "Romance",
         "image": "https://i.ibb.co/hRVcMMr/teens-girls-reading-educational-book-set-vector-529539-231.webp",
         "product": [
