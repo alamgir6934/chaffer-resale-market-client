@@ -18,6 +18,7 @@ const SignUp = () => {
 
 
     const handleSignUp = (data) => {
+
         console.log(data)
         setSignUpError('');
         createUser(data.email, data.password)
@@ -41,13 +42,41 @@ const SignUp = () => {
                 setSignUpError(error.message)
             })
 
+
     }
+
+
     return (
         <div>
             <div className='h-[800px] flex justify-center items-center'>
                 <div className='w-96 p-7'>
                     <h2 className='text-4xl text-center'>Signup</h2>
                     <form onSubmit={handleSubmit(handleSignUp)}>
+
+                        <label htmlFor="field-wind">
+                            <input
+                                {...register("weather")}
+                                type="radio"
+                                value="wind"
+                                id="field-wind"
+
+                            />
+                            {errors.radio && <p className='text-red-600'>{errors.radio?.message}</p>}
+                            Buyer
+                        </label>
+                        <label htmlFor="field-sun">
+                            <input
+                                {...register("weather")}
+                                type="radio"
+                                value="sun"
+                                id="field-sun"
+                            />
+                            seller
+                        </label>
+
+
+
+
                         <div className="form-control w-full max-w-xs">
                             <label className="label">
                                 <span className="label-text">Name</span>
