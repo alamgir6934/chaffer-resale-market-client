@@ -1,23 +1,29 @@
 import { useQuery } from '@tanstack/react-query';
+import { format } from 'date-fns';
 import React, { useState } from 'react';
+import Loading from '../../Shared/Loading/Loading';
 import ProductModal from '../ProductModal/ProductModal';
 import CategoryOption from './CategoryOption';
 
-const AvailableProduct = () => {
+const AvailableProduct = ({ selectedDate }) => {
     // const [productOption, setProductOption] = useState([])
     const [book, setBook] = useState(null);
+    const date = format(selectedDate, 'PP');
     // console.log(productOption[0].product)
 
-    const { data: productOption = [], isLoading } = useQuery({
-        queryKey: ['ProductOptions'],
-        queryFn: () => fetch('http://localhost:5000/ProductOptions')
+    const { data: productOption = [], isLoading, refetch } = useQuery({
+        queryKey: ['ProductOptions', date],
+        queryFn: () => fetch(`http://localhost:5000/ProductOptions?date=${date}`)
             .then(res => res.json())
     })
+    if (isLoading) {
+        return <Loading></Loading>
+    }
 
 
     return (
         <section className='my-16'>
-            {/* <p className='text-center text-secondary font-bold'>Available appointment on {format(selectedDate, 'PP')}</p> */}
+            <p className='text-center text-secondary font-bold'>Order date {format(selectedDate, 'PP')}</p>
             <div className='grid mt-8 gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-3'>
                 {
                     productOption.map(option => <CategoryOption
@@ -32,10 +38,10 @@ const AvailableProduct = () => {
                 {
                     book &&
                     <ProductModal
-                        // selectedDate={selectedDate}
+                        selectedDate={selectedDate}
                         setBook={setBook}
                         book={book}
-                    // refetch={refetch}
+                        refetch={refetch}
                     ></ProductModal>
                 }
 

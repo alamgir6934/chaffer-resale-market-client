@@ -1,10 +1,20 @@
 import React from 'react';
+import { DayPicker } from 'react-day-picker';
 
-const CategoryBanner = () => {
+const CategoryBanner = ({ selectedDate, setSelectedDate }) => {
     return (
-        <div>
 
+        <div className="">
+            <div>
+                <DayPicker
+                    mode='single'
+                    selected={selectedDate}
+                    onSelect={setSelectedDate}
+                />
+            </div>
         </div>
+
+
     );
 };
 
