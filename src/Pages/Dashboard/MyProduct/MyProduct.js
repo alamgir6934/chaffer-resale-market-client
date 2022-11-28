@@ -37,15 +37,15 @@ const MyProduct = () => {
                     </thead>
                     <tbody>
                         {/* <!-- row 1 --> */}
-                        {/* {
+                        {
                             bookings?.length && bookings?.map((booking, i) => <tr key={booking._id}>
                                 <th>{i + 1}</th>
-                                <td>{booking.patient}</td>
-                                <td>{booking.treatment}</td>
-                                <td>{booking.appointmentDate}</td>
-                                <td>{booking.slot}</td>
+                                <td>{booking.buyerName}</td>
+                                <td>{booking.order}</td>
+                                <td>{booking.OrderDate}</td>
+                                <td>{booking.rsprice}</td>
                                 <td>
-                                    {
+                                    {/* {
                                         booking.price && !booking.paid && <Link
                                             to={`/dashboard/payment/${booking._id}`}
                                         >
@@ -54,23 +54,13 @@ const MyProduct = () => {
                                     }
                                     {
                                         booking.price && booking.paid && <span className='text-green-500'>paid</span>
-                                    }
+                                    } */}
 
                                 </td>
                             </tr>)
-                        } */}
-
-                        {
-                            bookings.map((booking, i) => <tr>
-
-                                <th>{i + 1}</th>
-                                <td>{booking.buyerName}</td>
-                                <td>{booking.order}</td>
-                                <td>{booking.OrderDate}</td>
-                                <td>{booking.rsprice}</td>
-
-                            </tr>)
                         }
+
+
 
 
                     </tbody>
