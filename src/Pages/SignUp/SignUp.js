@@ -5,7 +5,6 @@ import toast from 'react-hot-toast';
 import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthProvider';
 
-// import { AuthContext } from '../../contexts/AuthProvider';
 
 
 
@@ -31,7 +30,7 @@ const SignUp = () => {
                 }
                 updateUser(userInfo)
                     .then(() => {
-                        // saveUser(data.name, data.email);
+                        saveUser(data.name, data.email);
                         navigate('/')
                     })
                     .catch(err => console.log(err))
@@ -42,6 +41,24 @@ const SignUp = () => {
                 setSignUpError(error.message)
             })
 
+
+        const saveUser = (name, email) => {
+            const user = { name, email };
+            fetch('http://localhost:5000/users', {
+                method: 'POST',
+                headers: {
+                    'content-type': 'application/json'
+                },
+                body: JSON.stringify(user)
+            })
+                .then(res => res.json())
+                .then(data => {
+                    console.log(data)
+                    // getUserToken(email);
+                    // setCreatedUserEmail(email)
+
+                })
+        }
 
     }
 
@@ -61,7 +78,6 @@ const SignUp = () => {
                                 id="field-wind"
 
                             />
-                            {errors.radio && <p className='text-red-600'>{errors.radio?.message}</p>}
                             Buyer
                         </label>
                         <label htmlFor="field-sun">

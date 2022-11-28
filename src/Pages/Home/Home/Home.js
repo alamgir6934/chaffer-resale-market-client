@@ -7,6 +7,7 @@ import Banner from '../Banner/Banner';
 import Contact from '../Contact/Contact';
 import Resales from '../Resales/Resales';
 
+
 const Home = () => {
     // const allCategory = useLoaderData();
     return (
