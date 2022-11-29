@@ -26,7 +26,7 @@ const SignUp = () => {
 
         console.log(data)
         setSignUpError('');
-        createUser(data.email, data.password)
+        createUser(data.email, data.password, data.role)
             .then(result => {
                 const user = result.user;
                 console.log(user)
@@ -36,20 +36,20 @@ const SignUp = () => {
                 }
                 updateUser(userInfo)
                     .then(() => {
-                        saveUser(data.name, data.email);
+                        saveUser(data.name, data.email, data.role);
                         navigate('/')
                     })
                     .catch(err => console.log(err))
 
             })
             .catch(error => {
-                console.log(error)
+
                 setSignUpError(error.message)
             })
 
 
-        const saveUser = (name, email) => {
-            const user = { name, email };
+        const saveUser = (name, email, role) => {
+            const user = { name, email, role };
             fetch('http://localhost:5000/users', {
                 method: 'POST',
                 headers: {
@@ -59,12 +59,13 @@ const SignUp = () => {
             })
                 .then(res => res.json())
                 .then(data => {
-                    console.log(data)
+
                     // getUserToken(email);
                     setCreatedUserEmail(email)
 
                 })
         }
+
 
 
     }
@@ -77,27 +78,15 @@ const SignUp = () => {
                     <h2 className='text-4xl text-center'>Signup</h2>
                     <form onSubmit={handleSubmit(handleSignUp)}>
 
-                        <label htmlFor="field-wind">
-                            <input
-                                {...register("weather")}
-                                type="radio"
-                                value="wind"
-                                id="field-wind"
+                        <div>
 
-                            />
-                            Buyer
-                        </label>
-                        <label htmlFor="field-sun">
-                            <input
-                                {...register("weather")}
-                                type="radio"
-                                value="sun"
-                                id="field-sun"
-                            />
-                            seller
-                        </label>
+                            <select {...register("role")} className="select w-full max-w-xs">
+                                <option disabled selected>Pick your favorite Simpson</option>
+                                <option>buyer</option>
+                                <option>saller</option>
 
-
+                            </select>
+                        </div>
 
 
                         <div className="form-control w-full max-w-xs">
