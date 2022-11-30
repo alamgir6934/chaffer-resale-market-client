@@ -12,7 +12,7 @@ project name:chaffer resale
 git-link-client-side:https://github.com/programming-hero-web-course-4/b612-used-products-resale-clients-side-alamgir6934
 git-link-server:https://github.com/programming-hero-web-course-4/b612-used-products-resale-server-side-alamgir6934
 
-line link:
+line link: https://chaffer-resale.web.app
 
 
 admin:ap@gmail.com
