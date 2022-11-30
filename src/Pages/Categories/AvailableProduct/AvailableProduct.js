@@ -13,7 +13,7 @@ const AvailableProduct = ({ selectedDate }) => {
 
     const { data: productOption = [], isLoading, refetch } = useQuery({
         queryKey: ['ProductOptions', date],
-        queryFn: () => fetch(`http://localhost:5000/ProductOptions?date=${date}`)
+        queryFn: () => fetch(`https://chaffer-resale-server.vercel.app/ProductOptions?date=${date}`)
             .then(res => res.json())
     })
     if (isLoading) {

@@ -11,7 +11,7 @@ const Addproduct = () => {
     const { data: products, isLoading } = useQuery({
         queryKey: ['product'],
         queryFn: async () => {
-            const res = await fetch('http://localhost:5000/productSpecialty');
+            const res = await fetch('https://chaffer-resale-server.vercel.app/productSpecialty');
             const data = await res.json();
             return data;
         }
@@ -43,7 +43,7 @@ const Addproduct = () => {
                         image: imgData.data.url
                     }
                     //save doctor information to the data base
-                    fetch('http://localhost:5000/newProducts', {
+                    fetch('https://chaffer-resale-server.vercel.app/newProducts', {
                         method: 'POST',
                         headers: {
                             'content-type': 'application/json',

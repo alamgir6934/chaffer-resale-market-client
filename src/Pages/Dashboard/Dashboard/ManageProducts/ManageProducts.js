@@ -17,7 +17,7 @@ const ManageProducts = () => {
         queryKey: ['saller'],
         queryFn: async () => {
             try {
-                const res = await fetch('http://localhost:5000/newProducts', {
+                const res = await fetch('https://chaffer-resale-server.vercel.app/newProducts', {
                     headers: {
                         authorization: `bearer ${localStorage.getItem('accessToken')}`
 
@@ -35,7 +35,7 @@ const ManageProducts = () => {
 
 
     const handleDeleteProduct = sell => {
-        fetch(`http://localhost:5000/newProducts/${sell._id}`, {
+        fetch(`https://chaffer-resale-server.vercel.app/newProducts/${sell._id}`, {
             method: 'DELETE',
             headers: {
                 authorization: `bearer ${localStorage.getItem('accessToken')}`

@@ -30,7 +30,7 @@ const router = createBrowserRouter([
             {
                 path: '/',
                 element: <Home></Home>
-                // loader: () => fetch('http://localhost:5000/Products')
+                // loader: () => fetch('https://chaffer-resale-server.vercel.app/Products')
             },
             {
                 path: '/login',
@@ -51,7 +51,7 @@ const router = createBrowserRouter([
             // {
             //     path: '/resale/:id',
             //     element: <ResaleCategory></ResaleCategory>,
-            //     loader: ({ params }) => fetch(`http://localhost:5000/Products/${params._id}`)
+            //     loader: ({ params }) => fetch(`https://chaffer-resale-server.vercel.app/Products/${params._id}`)
 
             // }
 
@@ -89,8 +89,8 @@ const router = createBrowserRouter([
 
             {
                 path: '/dashboard/payment/:id',
-                element: <AdminRoute><Payment></Payment></AdminRoute>,
-                loader: ({ params }) => fetch(`http://localhost:5000/bookings/${params.id}`)
+                element: <Payment></Payment>,
+                loader: ({ params }) => fetch(`https://chaffer-resale-server.vercel.app/bookings/${params.id}`)
 
             },
 
