@@ -1,13 +1,13 @@
 import { useQuery } from '@tanstack/react-query';
 import React from 'react';
 import { useForm } from 'react-hook-form';
+import toast from 'react-hot-toast';
 import Loading from '../../../Shared/Loading/Loading';
 
 
 const Addproduct = () => {
     const { register, formState: { errors }, handleSubmit } = useForm();
     const imageHostKey = process.env.REACT_APP_imgbb_key
-    console.log(imageHostKey)
     const { data: products, isLoading } = useQuery({
         queryKey: ['product'],
         queryFn: async () => {
@@ -18,7 +18,48 @@ const Addproduct = () => {
     })
 
     const handleAddProduct = data => {
-        console.log(data)
+        //console.log(data.image[0])
+        const image = data.image[0];
+        const formData = new FormData();
+        formData.append('image', image);
+        const url = `https://api.imgbb.com/1/upload?expiration=600&key=${imageHostKey}`
+        fetch(url, {
+            method: 'POST',
+            body: formData
+        })
+
+            .then(res => res.json())
+            .then(imgData => {
+                if (imgData.success) {
+                    console.log(imgData);
+                    const saller = {
+                        title: data.title,
+                        email: data.email,
+                        specialty: data.specialty,
+                        location: data.location,
+                        condition: data.condition,
+                        price: data.price,
+                        year: data.year,
+                        image: imgData.data.url
+                    }
+                    //save doctor information to the data base
+                    fetch('http://localhost:5000/newProducts', {
+                        method: 'POST',
+                        headers: {
+                            'content-type': 'application/json',
+                            authorization: `bearer ${localStorage.getItem('accessToken')}`
+                        },
+                        body: JSON.stringify(saller)
+                    })
+                        .then(res => res.json())
+                        .then(result => {
+                            console.log(result);
+                            toast.success(`${data.title} is added successfully`);
+                            // navigate('/dashboard/managedoctors')
+                        })
+                }
+            })
+
 
     }
     if (isLoading) {

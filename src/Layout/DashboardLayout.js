@@ -28,8 +28,8 @@ const DashboardLayout = () => {
                         {
                             isAdmin && <>
                                 <li><Link to='/dashboard/allusers'>Users Control</Link></li>
-                                {/* <li><Link to='/dashboard/adddoctor'>Add a doctor</Link></li>
-                                <li><Link to='/dashboard/managedoctors'>Manage Doctors</Link></li> */}
+                                <li><Link to='/dashboard/manageproducts'>Manage Product</Link></li>
+
 
 
                             </>
@@ -37,7 +37,7 @@ const DashboardLayout = () => {
                         {
                             isSaller && <>
 
-                                <li><Link to='/dashboard/addproduct'>Add a product</Link></li>
+                                <li><Link to='/dashboard/manageproducts'>Manage Product</Link></li>
 
                             </>
 
