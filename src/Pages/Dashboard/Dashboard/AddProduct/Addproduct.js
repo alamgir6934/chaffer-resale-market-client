@@ -35,7 +35,7 @@ const Addproduct = () => {
                     const saller = {
                         title: data.title,
                         email: data.email,
-                        specialty: data.specialty,
+                        product: data.product,
                         location: data.location,
                         condition: data.condition,
                         price: data.price,
@@ -113,7 +113,7 @@ const Addproduct = () => {
                 </div>
                 <div className="form-control w-full max-w-xs">
                     <label className="label"> <span className="label-text">Category</span></label>
-                    <select {...register('specialty')}
+                    <select {...register('product')}
 
                         className="select input-bordered w-full max-w-xs text-black">
 

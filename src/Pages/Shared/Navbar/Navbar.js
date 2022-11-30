@@ -13,10 +13,12 @@ const Navbar = () => {
 
     const menuItems = <React.Fragment>
         <li><Link to='/'>Home</Link></li>
+        <li><Link to='/blog'>Blogs</Link></li>
         <li tabIndex={0}>
             <Link to='/category'>
                 Category
             </Link>
+
             <ul className="p-2 bg-base-100">
 
                 {/* <li><Link to='/adventure'>Adventure</Link></li>
@@ -24,7 +26,7 @@ const Navbar = () => {
                 <li><Link to='/romance'>Romance</Link></li> */}
             </ul>
         </li>
-        <li><Link to='/about'>About</Link></li>
+
         {user?.uid ?
             <>
                 <li><Link to='/dashboard'>Dashboard</Link></li>
