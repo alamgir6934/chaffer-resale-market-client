@@ -145,7 +145,7 @@ const Addproduct = () => {
                     <input type="file" {...register("image", { required: "photo is required" })} placeholder="Type here" className="input input-bordered w-full max-w-xs" />
                     {errors.image && <p className='text-red-600'>{errors.image?.message}</p>}
                 </div>
-                <input className='btn btn-accent w-full' value='Add Doctor' type="submit" />
+                <input className='btn btn-accent w-full' value='Add Product' type="submit" />
                 {/* {signUpError && <p className='text-red-600'>{signUpError}</p>} */}
 
 

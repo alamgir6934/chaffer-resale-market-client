@@ -81,7 +81,7 @@ const SignUp = () => {
                         <div>
 
                             <select {...register("role")} className="select w-full max-w-xs">
-                                <option disabled selected>Pick your favorite Simpson</option>
+                                <option disabled selected>Pick your signup category</option>
                                 <option>buyer</option>
                                 <option>saller</option>
 
