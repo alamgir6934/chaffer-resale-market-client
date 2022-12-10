@@ -6,10 +6,10 @@ import Loading from '../../../Pages/Shared/Loading/Loading';
 
 const SallerRoute = ({ children }) => {
     const { user, loading } = useContext(AuthContext);
-    const [isSaller, isAdminLoading] = useSaller(user?.email);
+    const [isSaller, isSallerLoading] = useSaller(user?.email);
     const location = useLocation();
 
-    if (loading || isAdminLoading) {
+    if (loading || isSallerLoading) {
         return <Loading></Loading>
     }
     // if (loading) {

@@ -14,6 +14,7 @@ const ManageProducts = () => {
 
 
     const { data: saller, isLoading, refetch } = useQuery({
+
         queryKey: ['saller'],
         queryFn: async () => {
             try {
@@ -24,6 +25,7 @@ const ManageProducts = () => {
                     }
                 })
                 const data = await res.json();
+                console.log(data)
                 return data;
             }
             catch (error) {
@@ -32,7 +34,7 @@ const ManageProducts = () => {
         }
     })
 
-
+    console.log(saller)
 
     const handleDeleteProduct = sell => {
         fetch(`https://chaffer-resale-server.vercel.app/newProducts/${sell._id}`, {
